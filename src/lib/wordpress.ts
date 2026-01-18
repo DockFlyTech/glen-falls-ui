@@ -28,7 +28,8 @@ export async function getPostBySlug(
   slug: string
 ): Promise<WPPost | null> {
   const res = await fetch(
-    `${WP_BASE_URL}/wp-json/wp/v2/posts?slug=${slug}&_embed`
+    `${WP_BASE_URL}/wp-json/wp/v2/posts?slug=${encodeURIComponent(slug)}&_embed`,
+    { cache: "no-store" } // critical for dynamic article pages
   );
 
   if (!res.ok) {
@@ -36,5 +37,5 @@ export async function getPostBySlug(
   }
 
   const posts = await res.json();
-  return posts[0] ?? null;
+  return posts.length ? posts[0] : null;
 }

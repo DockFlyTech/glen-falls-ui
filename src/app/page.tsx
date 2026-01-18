@@ -5,24 +5,28 @@ export default async function HomePage() {
 
   return (
     <main className="max-w-6xl mx-auto p-6">
-      <h1 className="text-4xl font-bold mb-8">Latest News</h1>
+      <h1 className="font-headline mb-8">Latest News</h1>
 
       <div className="grid gap-8">
         {posts.map(post => (
-          <article key={post.id}>
+          <article key={post.id} className="border-b border-gray-100 pb-8">
             <a
               href={`/article/${post.slug}`}
-              className="text-2xl font-semibold text-blue-600 hover:underline"
+              className="font-subheading text-blue-600 hover:underline block mb-2"
             >
               {post.title.rendered}
             </a>
 
             <div
-              className="mt-2 text-gray-700"
+              className="font-paragraph text-gray-700"
               dangerouslySetInnerHTML={{
                 __html: post.excerpt.rendered
               }}
             />
+            
+            <span className="font-accent text-sm text-gray-500 mt-2 block">
+              Featured Story
+            </span>
           </article>
         ))}
       </div>

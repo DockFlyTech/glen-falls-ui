@@ -10,6 +10,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-merriweather: var(--font-merriweather);
+  --font-raleway: var(--font-raleway);
+  --font-playfair: var(--font-playfair);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +22,36 @@
   }
 }
 
+/* News Site Typography Theme */
+@layer components {
+  .font-headline {
+    font-family: var(--font-merriweather);
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .font-subheading {
+    font-family: var(--font-raleway);
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .font-paragraph {
+    font-family: var(--font-merriweather);
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .font-accent {
+    font-family: var(--font-playfair);
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-merriweather), serif;
+  font-weight: 300;
 }
