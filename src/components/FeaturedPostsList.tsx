@@ -7,6 +7,11 @@ import {
   ChevronDoubleRightIcon,
 } from "@heroicons/react/16/solid";
 import { Post } from "@/app/types";
+import {
+  getFeaturedImageUrl,
+  getAuthorName,
+  formatDate,
+} from "@/utils/post-utils";
 
 interface FeaturedPostsListProps {
   title: string;
@@ -48,8 +53,7 @@ export function FeaturedPostsList({
 
       <div className="flex flex-col gap-4">
         {posts.slice(0, 3).map(post => {
-          const featuredImage =
-            post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+          const featuredImage = getFeaturedImageUrl(post);
           return (
             <article
               key={post.id}
@@ -87,17 +91,11 @@ export function FeaturedPostsList({
                 >
                   <div className="flex items-center gap-1">
                     <UserIcon className="w-3 h-3" />
-                    <span>{post._embedded?.author?.[0]?.name || "Staff"}</span>
+                    <span>{getAuthorName(post)}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <CalendarIcon className="w-3 h-3" />
-                    <span>
-                      {new Date(post.date).toLocaleDateString("en-US", {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </span>
+                    <span>{formatDate(post.date)}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <ChatBubbleLeftIcon className="w-3 h-3" />

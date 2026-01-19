@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getPrimaryCategory } from "@/lib/normalizePost";
 import { Post } from "@/app/types";
+import { getAuthorName, formatDate } from "@/utils/post-utils";
 
 export function ArticlePreview({ post }: { post: Post }) {
   const category = getPrimaryCategory(post);
@@ -18,14 +19,8 @@ export function ArticlePreview({ post }: { post: Post }) {
       </h2>
 
       <div className="text-sm text-gray-500 mt-2 flex gap-4">
-        <span>{post._embedded?.author?.[0]?.name}</span>
-        <span>
-          {new Date(post.date).toLocaleDateString(undefined, {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          })}
-        </span>
+        <span>{getAuthorName(post)}</span>
+        <span>{formatDate(post.date)}</span>
       </div>
     </article>
   );

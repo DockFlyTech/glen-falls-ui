@@ -2,12 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPrimaryCategory } from "@/lib/normalizePost";
 import { Post } from "@/app/types";
+import { getFeaturedImageUrl, getAuthorName, formatDate } from "@/utils/post-utils";
 
 export function MainFeaturedArticle({ post }: { post: Post }) {
   if (!post) return null;
 
   const category = getPrimaryCategory(post);
-  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+  const featuredImage = getFeaturedImageUrl(post);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
@@ -39,7 +40,7 @@ export function MainFeaturedArticle({ post }: { post: Post }) {
               <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            <span>{post._embedded?.author?.[0]?.name || "Dock Fly"}</span>
+            <span>{getAuthorName(post, "Dock Fly")}</span>
           </div>
           <div className="flex items-center gap-1">
             <svg
@@ -56,13 +57,7 @@ export function MainFeaturedArticle({ post }: { post: Post }) {
               <line x1="8" x2="8" y1="2" y2="6" />
               <line x1="3" x2="21" y1="10" y2="10" />
             </svg>
-            <span>
-              {new Date(post.date).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </span>
+            <span>{formatDate(post.date)}</span>
           </div>
           <div className="flex items-center gap-1">
             <svg

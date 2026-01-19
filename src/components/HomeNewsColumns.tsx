@@ -1,17 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import { hasTag } from "@/lib/normalizePost";
 import { TAGS } from "@/constants/taxonomy";
-import { ClockIcon } from "@heroicons/react/20/solid";
-import { FireIcon } from "@heroicons/react/20/solid";
+import { ClockIcon, FireIcon } from "@heroicons/react/20/solid";
 import { Post } from "@/app/types";
+import {
+  filterPostsByTag,
+  getTrendingPosts,
+  getAuthorName,
+  formatDate,
+} from "@/utils/post-utils";
 
 export function HomeNewsColumns({ posts }: { posts: Post[] }) {
   const [activeTab, setActiveTab] = useState<"latest" | "trending">("latest");
 
-  const latest = posts.filter((p: Post) => hasTag(p, TAGS.LATEST));
-  const trending = posts.filter((p: Post) => hasTag(p, TAGS.TRENDING));
+  const latest = filterPostsByTag(posts, TAGS.LATEST);
+  const trending = getTrendingPosts(posts);
 
   const displayPosts = activeTab === "latest" ? latest : trending;
 
@@ -70,7 +74,7 @@ export function HomeNewsColumns({ posts }: { posts: Post[] }) {
   );
 }
 
-function ArticlePreviewSmall({ post }: { post: any }) {
+function ArticlePreviewSmall({ post }: { post: Post }) {
   const category = post._embedded?.["wp:term"]?.[0]?.[0];
 
   return (
@@ -101,7 +105,7 @@ function ArticlePreviewSmall({ post }: { post: any }) {
             <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
           </svg>
-          <span>{post._embedded?.author?.[0]?.name || "Dock Fly"}</span>
+          <span>{getAuthorName(post, "Dock Fly")}</span>
         </div>
         <div className="flex items-center gap-1">
           <svg
@@ -118,13 +122,7 @@ function ArticlePreviewSmall({ post }: { post: any }) {
             <line x1="8" x2="8" y1="2" y2="6" />
             <line x1="3" x2="21" y1="10" y2="10" />
           </svg>
-          <span>
-            {new Date(post.date).toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            })}
-          </span>
+          <span>{formatDate(post.date)}</span>
         </div>
         <div className="flex items-center gap-1">
           <svg
