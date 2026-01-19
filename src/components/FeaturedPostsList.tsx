@@ -6,10 +6,11 @@ import {
   ChatBubbleLeftIcon,
   ChevronDoubleRightIcon,
 } from "@heroicons/react/16/solid";
+import { Post } from "@/app/types";
 
 interface FeaturedPostsListProps {
   title: string;
-  posts: any[];
+  posts: Post[];
   className?: string;
   viewAllLink?: string;
   dark?: boolean;

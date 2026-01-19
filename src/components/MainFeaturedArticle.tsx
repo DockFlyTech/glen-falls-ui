@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getPrimaryCategory } from "@/lib/normalizePost";
+import { Post } from "@/app/types";
 
-export function MainFeaturedArticle({ post }: { post: any }) {
+export function MainFeaturedArticle({ post }: { post: Post }) {
   if (!post) return null;
 
   const category = getPrimaryCategory(post);

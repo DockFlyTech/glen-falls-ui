@@ -1,4 +1,6 @@
-export function FrontPagePreview({ media }: { media: any }) {
+import { WPMedia } from "@/app/types";
+
+export function FrontPagePreview({ media }: { media: WPMedia | null }) {
   if (!media) return null;
 
   const pdfUrl = media.source_url;

@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { ArticlePreview } from "./ArticlePreview";
 import { hasTag } from "@/lib/normalizePost";
 import { TAGS } from "@/constants/taxonomy";
+import { ClockIcon } from "@heroicons/react/20/solid";
+import { FireIcon } from "@heroicons/react/20/solid";
+import { Post } from "@/app/types";
 
-export function HomeNewsColumns({ posts }: { posts: any[] }) {
+export function HomeNewsColumns({ posts }: { posts: Post[] }) {
   const [activeTab, setActiveTab] = useState<"latest" | "trending">("latest");
 
-  const latest = posts.filter(p => hasTag(p, TAGS.LATEST));
-  const trending = posts.filter(p => hasTag(p, TAGS.TRENDING));
+  const latest = posts.filter((p: Post) => hasTag(p, TAGS.LATEST));
+  const trending = posts.filter((p: Post) => hasTag(p, TAGS.TRENDING));
 
   const displayPosts = activeTab === "latest" ? latest : trending;
 
@@ -27,18 +29,7 @@ export function HomeNewsColumns({ posts }: { posts: any[] }) {
           {activeTab === "latest" && (
             <div className="absolute top-0 left-0 right-0 h-1 bg-black" />
           )}
-          <svg
-            className="w-5 h-5 mb-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
-          </svg>
+          <ClockIcon className="w-5 h-5 mb-1" />
           <span className="text-[11px] font-bold uppercase tracking-wider font-raleway">
             Latest News
           </span>
@@ -54,17 +45,7 @@ export function HomeNewsColumns({ posts }: { posts: any[] }) {
           {activeTab === "trending" && (
             <div className="absolute top-0 left-0 right-0 h-1 bg-black" />
           )}
-          <svg
-            className="w-5 h-5 mb-1"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
-          </svg>
+          <FireIcon className="w-5 h-5 mb-1" />
           <span className="text-[11px] font-bold uppercase tracking-wider font-raleway">
             Trending News
           </span>

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { getPrimaryCategory } from "@/lib/normalizePost";
+import { Post } from "@/app/types";
 
-export function ArticlePreview({ post }: { post: any }) {
+export function ArticlePreview({ post }: { post: Post }) {
   const category = getPrimaryCategory(post);
 
   return (
