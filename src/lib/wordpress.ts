@@ -1,4 +1,4 @@
-import { Post, WPMedia } from "@/app/types";
+import { FrontPagePreviewMedia, Post } from "@/app/types";
 import { PAGE_SLUGS } from "@/constants/taxonomy";
 
 const WP_BASE_DOMAIN = process.env.NEXT_PUBLIC_WP_BASE_URL!;
@@ -30,18 +30,26 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
   return posts.length ? posts[0] : null;
 }
 
-export async function getLatestFrontPagePdf(): Promise<WPMedia | null> {
+export async function getLatestFrontPageMedia(): Promise<FrontPagePreviewMedia> {
   try {
-    const url = `${WP_BASE_URL}/media?mime_type=application/pdf&search=front&page=1&per_page=1&orderby=date&order=desc`;
+    const imageUrl = `${WP_BASE_URL}/media?media_type=image&search=front&page=1&per_page=1&orderby=date&order=desc`;
+    const pdfUrl = `${WP_BASE_URL}/media?mime_type=application/pdf&search=front&page=1&per_page=1&orderby=date&order=desc`;
 
-    const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) return null;
+    const [imageRes, pdfRes] = await Promise.all([
+      fetch(imageUrl, { cache: "no-store" }),
+      fetch(pdfUrl, { cache: "no-store" }),
+    ]);
 
-    const media = await res.json();
-    return media.length ? media[0] : null;
+    const imageJson = imageRes.ok ? await imageRes.json() : [];
+    const pdfJson = pdfRes.ok ? await pdfRes.json() : [];
+
+    return {
+      image: imageJson.length ? imageJson[0] : null,
+      pdf: pdfJson.length ? pdfJson[0] : null,
+    };
   } catch (e) {
-    console.error("Error fetching front page PDF:", e);
-    return null;
+    console.error("Error fetching front page media:", e);
+    return { image: null, pdf: null };
   }
 }
 
@@ -74,4 +82,3 @@ export async function getOurStoryPage(): Promise<Post | null> {
     return null;
   }
 }
-

@@ -1,4 +1,4 @@
-import { getHomepagePosts, getLatestFrontPagePdf } from "@/lib/wordpress";
+import { getHomepagePosts, getLatestFrontPageMedia } from "@/lib/wordpress";
 import { HomeNewsColumns } from "@/components/HomeNewsColumns";
 import { MainFeaturedArticle } from "@/components/MainFeaturedArticle";
 import { FrontPagePreview } from "@/components/FrontPagePreview";
@@ -12,7 +12,7 @@ import {
 export default async function HomePage() {
   const [posts, frontPageMedia] = await Promise.all([
     getHomepagePosts(),
-    getLatestFrontPagePdf(),
+    getLatestFrontPageMedia(),
   ]);
 
   const trendingPosts = getTrendingPosts(posts);
@@ -36,7 +36,7 @@ export default async function HomePage() {
         </div>
         {/* Sidebar Column */}
         <div className="lg:w-1/3 flex flex-col gap-10">
-          <FrontPagePreview media={frontPageMedia} />
+          <FrontPagePreview image={frontPageMedia.image} pdf={frontPageMedia.pdf} />
           <HomeNewsColumns posts={posts} />
         </div>
       </div>

@@ -53,3 +53,8 @@ export interface Page extends WPBaseContent {
     rendered: string;
   };
 }
+
+export interface FrontPagePreviewMedia {
+  image: WPMedia | null;
+  pdf: WPMedia | null;
+}
