@@ -24,7 +24,7 @@ export function ContentNotFound({
       </div>
 
       <h1 className="text-4xl md:text-5xl font-merriweather font-black mb-6 tracking-tight text-gray-900 uppercase">
-        {title}
+        404: {title}
       </h1>
 
       <div className="w-20 h-1.5 bg-black mx-auto mb-8"></div>
