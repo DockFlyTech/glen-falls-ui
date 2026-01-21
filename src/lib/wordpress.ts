@@ -82,3 +82,33 @@ export async function getOurStoryPage(): Promise<Post | null> {
     return null;
   }
 }
+
+export async function getCategoryBySlug(slug: string) {
+  const res = await fetch(`${WP_BASE_URL}/categories?slug=${slug}`);
+  if (!res.ok) return null;
+  const categories = await res.json();
+  return categories.length ? categories[0] : null;
+}
+
+export async function getPostsByCategory(categoryId: number, perPage: number = 10): Promise<Post[]> {
+  const res = await fetch(`${WP_BASE_URL}/posts?categories=${categoryId}&per_page=${perPage}&_embed`, {
+    cache: "no-store"
+  });
+  if (!res.ok) return [];
+  return res.json();
+}
+
+export async function getTagBySlug(slug: string) {
+  const res = await fetch(`${WP_BASE_URL}/tags?slug=${slug}`);
+  if (!res.ok) return null;
+  const tags = await res.json();
+  return tags.length ? tags[0] : null;
+}
+
+export async function getPostsByTag(tagId: number, perPage: number = 20): Promise<Post[]> {
+  const res = await fetch(`${WP_BASE_URL}/posts?tags=${tagId}&per_page=${perPage}&_embed`, {
+    cache: "no-store"
+  });
+  if (!res.ok) return [];
+  return res.json();
+}

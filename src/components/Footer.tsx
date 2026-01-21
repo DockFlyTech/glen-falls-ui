@@ -53,21 +53,21 @@ export async function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Featured Posts #1 */}
+          {/* Column 2: Latest News */}
           <div className="lg:col-span-4">
             <FeaturedPostsList
-              title="Featured Posts #1"
+              title="Latest News"
               posts={latest.length ? latest : posts.slice(0, 3)}
-              viewAllLink="/category/latest"
+              viewAllLink="/tag/latest"
             />
           </div>
 
-          {/* Column 3: Featured Posts #2 */}
+          {/* Column 3: Trending News */}
           <div className="lg:col-span-4">
             <FeaturedPostsList
-              title="Featured Posts #2"
+              title="Trending News"
               posts={trending.length ? trending : posts.slice(3, 6)}
-              viewAllLink="/category/trending"
+              viewAllLink="/tag/trending"
             />
           </div>
         </div>

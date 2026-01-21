@@ -9,9 +9,12 @@ export function ArticlePreview({ post }: { post: Post }) {
   return (
     <article className="border-b border-gray-200 py-6">
       {category && (
-        <p className="text-xs font-bold uppercase tracking-wide mb-2">
+        <Link 
+          href={`/category/${category.slug}`}
+          className="text-xs font-bold uppercase tracking-wide mb-2 block hover:text-gray-600 transition-colors text-black"
+        >
           {category.name}
-        </p>
+        </Link>
       )}
 
       <h2 className="text-xl font-serif font-semibold leading-tight">
