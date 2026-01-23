@@ -15,10 +15,9 @@ export function Navbar() {
       name: "ABOUT",
       href: "/about",
     },
-    { name: "ADVERTISERS", href: "#" },
+    { name: "ADVERTISE WITH US", href: "#" },
     { name: "CONTACT", href: "#" },
-    { name: "OTHER", href: "#", hasDropdown: true },
-    { name: "PAGE", href: "#" },
+    { name: "FIND THE CHRONICLE", href: "#" },
   ];
 
   return (

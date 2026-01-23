@@ -47,6 +47,85 @@ export default async function AboutPage() {
               className="font-merriweather text-lg leading-[1.8] text-gray-800"
             />
           </div>
+
+          {/* Our Staff Section */}
+          <div className="mt-16 clear-both">
+            <h2 className="text-3xl font-merriweather font-black mb-8 tracking-tight text-black">
+              Our Staff
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Left Column - Chronicle Staff */}
+              <div>
+                <h3 className="text-xl font-merriweather font-bold mb-4 text-black">
+                  Chronicle Staff
+                </h3>
+                <ul className="space-y-2 font-merriweather text-lg text-gray-800">
+                  <li>
+                    <span className="font-semibold">Mark Frost</span> / Founder,
+                    Editor and Publisher
+                  </li>
+                  <li>
+                    <span className="font-semibold">Sandra Hutchinson</span> /
+                    Assistant Publisher and Counsel
+                  </li>
+                  <li>
+                    <span className="font-semibold">Cathy DeDe</span> / Managing
+                    Editor
+                  </li>
+                  <li>
+                    <span className="font-semibold">Zander Frost</span> / Chief
+                    Operating Officer
+                  </li>
+                  <li>
+                    <span className="font-semibold">Gabrielle Katz</span> /
+                    Advertising Manager
+                  </li>
+                  <li>
+                    <span className="font-semibold">Ben Westcott</span> /
+                    Reporter
+                  </li>
+                  <li>
+                    <span className="font-semibold">Caroline Martindale</span> /
+                    Calendar assistant and staff writer
+                  </li>
+                  <li>
+                    <span className="font-semibold">David Cederstrom</span> /
+                    Staff writer
+                  </li>
+                </ul>
+              </div>
+
+              {/* Right Column - Freelance & Delivery Team */}
+              <div className="space-y-8">
+                {/* Freelance */}
+                <div>
+                  <h3 className="text-xl font-merriweather font-bold mb-4 text-black">
+                    Freelance
+                  </h3>
+                  <ul className="space-y-2 font-merriweather text-lg text-gray-800">
+                    <li>
+                      <span className="font-semibold">Ed Deso</span> / Freelance
+                      Graphic Designer
+                    </li>
+                  </ul>
+                </div>
+
+                {/* The Chronicle Delivery Team */}
+                <div>
+                  <h3 className="text-xl font-merriweather font-bold mb-4 text-black">
+                    The Chronicle Delivery Team
+                  </h3>
+                  <ul className="space-y-2 font-merriweather text-lg text-gray-800">
+                    <li>Raymond (Lynn) Van Tassell, Jr.</li>
+                    <li>Gary Brown</li>
+                    <li>David White</li>
+                    <li>Mark Frost</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Sidebar */}
