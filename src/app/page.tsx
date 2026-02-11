@@ -4,10 +4,7 @@ import { MainFeaturedArticle } from "@/components/MainFeaturedArticle";
 import { FrontPagePreview } from "@/components/FrontPagePreview";
 import { BoldPostsList } from "@/components/BoldPostsList";
 import { SquareImagePostsList } from "@/components/SquareImagePostsList";
-import {
-  getPostsWithImages,
-  getTrendingPosts,
-} from "@/utils/post-utils";
+import { getPostsWithImages, getTrendingPosts } from "@/utils/post-utils";
 
 export default async function HomePage() {
   const [posts, frontPageMedia] = await Promise.all([
@@ -36,7 +33,10 @@ export default async function HomePage() {
         </div>
         {/* Sidebar Column */}
         <div className="lg:w-1/3 flex flex-col gap-10">
-          <FrontPagePreview image={frontPageMedia.image} pdf={frontPageMedia.pdf} />
+          <FrontPagePreview
+            image={frontPageMedia.image}
+            pdf={frontPageMedia.pdf}
+          />
           <HomeNewsColumns posts={posts} />
         </div>
       </div>

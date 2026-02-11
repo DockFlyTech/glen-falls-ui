@@ -53,6 +53,47 @@
     font-size: 18px;
     font-weight: 400;
   }
+
+  .font-tagline {
+    font-family: var(--font-playfair);
+    font-size: 18px;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .font-date {
+    font-family: var(--font-raleway);
+    font-size: 12px;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  .font-search {
+    font-family: var(--font-raleway);
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .font-button {
+    font-family: var(--font-raleway);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .font-nav {
+    font-family: var(--font-raleway);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  .font-weather {
+    font-family: var(--font-raleway);
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+  }
 }
 
 body {
