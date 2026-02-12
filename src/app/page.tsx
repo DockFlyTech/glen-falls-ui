@@ -1,3 +1,4 @@
+import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { getHomepagePosts, getLatestFrontPageMedia } from "@/lib/wordpress";
 import { HomeNewsColumns } from "@/components/HomeNewsColumns";
 import { MainFeaturedArticle } from "@/components/MainFeaturedArticle";
@@ -37,7 +38,9 @@ export default async function HomePage() {
             image={frontPageMedia.image}
             pdf={frontPageMedia.pdf}
           />
+          <AdPlaceholder variant="sidebar" label="Sidebar ad — 300×250 medium rectangle" />
           <HomeNewsColumns posts={posts} />
+          <AdPlaceholder variant="sidebar" label="Sidebar ad — 300×250 medium rectangle" />
         </div>
       </div>
     </main>

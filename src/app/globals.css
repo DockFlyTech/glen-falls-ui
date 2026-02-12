@@ -94,6 +94,15 @@
     font-weight: 600;
     color: #374151;
   }
+
+  .font-ad-label {
+    font-family: var(--font-raleway);
+    font-size: 12px;
+    font-weight: 500;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
 }
 
 body {

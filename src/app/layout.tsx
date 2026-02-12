@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { AdPlaceholder } from "@/components/AdPlaceholder";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +56,9 @@ export default function RootLayout({
       >
         <Navbar />
         <div className="flex-grow">{children}</div>
+        <div className="max-w-[1400px] mx-auto w-full px-4 py-3">
+          <AdPlaceholder variant="banner" label="Footer ad — 728×90 leaderboard" />
+        </div>
         <Footer />
       </body>
     </html>
