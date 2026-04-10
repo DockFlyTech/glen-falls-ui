@@ -22,7 +22,7 @@ export function ArticlePreview({ post }: { post: Post }) {
       </h2>
 
       <div className="text-sm text-gray-500 mt-2 flex gap-4">
-        <span>{getAuthorName(post)}</span>
+        <span className="font-byline">{getAuthorName(post)}</span>
         <span>{formatDate(post.date)}</span>
       </div>
     </article>

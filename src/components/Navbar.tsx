@@ -46,13 +46,21 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <nav className="border-b border-rule bg-white sticky top-0 z-50">
       {/* Masthead section — visible at top, collapses on scroll */}
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          scrolled ? "max-h-0 opacity-0" : "max-h-40 opacity-100"
+          scrolled ? "max-h-0 opacity-0" : "max-h-60 opacity-100"
         }`}
       >
+        {/* Top decorative rule — thin/thick/thin */}
+        <div className="max-w-[1400px] mx-auto px-4">
+          <div className="flex flex-col items-stretch pt-2">
+            <div className="h-px bg-rule-dark" />
+            <div className="h-[2px] bg-foreground mt-[2px]" />
+          </div>
+        </div>
+
         <div className="relative max-w-[1400px] mx-auto px-4 py-4 flex items-center justify-center">
           {/* Logo — always centered */}
           <Link href="/" className="shrink-0">
@@ -119,6 +127,14 @@ export function Navbar() {
                 </a>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Bottom decorative rule — thick/thin */}
+        <div className="max-w-[1400px] mx-auto px-4">
+          <div className="flex flex-col items-stretch pb-0">
+            <div className="h-[2px] bg-foreground" />
+            <div className="h-px bg-rule-dark mt-[2px]" />
           </div>
         </div>
       </div>

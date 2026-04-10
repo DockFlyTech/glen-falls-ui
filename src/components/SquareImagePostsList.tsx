@@ -57,7 +57,7 @@ export function SquareImagePostsList({
               <div className="flex items-center gap-4 text-xs text-gray-500 mb-4 font-medium font-raleway uppercase tracking-wider">
                 <div className="flex items-center gap-1">
                   <UserIcon className="w-3.5 h-3.5" />
-                  <span>{getAuthorName(post)}</span>
+                  <span className="font-byline">{getAuthorName(post)}</span>
                 </div>
                 <div className="flex items-center gap-1">
                   <CalendarIcon className="w-3.5 h-3.5" />

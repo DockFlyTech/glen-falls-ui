@@ -1,113 +1,374 @@
 @import "tailwindcss";
 
+/* ============================================================
+   GLEN FALLS CHRONICLE — Newsprint Theme
+   Warm, print-inspired, editorial. Like picking up the paper
+   at the diner on a Saturday morning.
+   ============================================================ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --footer-bg: #1C1C1C;
-  --footer-text: #ffffff;
-  --dark-text-secondary: #b3b3b3;
+  /* Paper & Ink */
+  --background: #F8F4EE;
+  --foreground: #2C2521;
+  --paper-aged: #F0EAE0;
+  --paper-shadow: #E4DCD0;
+
+  /* Warm Accent Palette */
+  --accent: #7B2D26;
+  --accent-hover: #611F1A;
+  --accent-gold: #B8860B;
+
+  /* Text Hierarchy — warm grays, never cold */
+  --text-primary: #2C2521;
+  --text-secondary: #5C524A;
+  --text-tertiary: #8A7E74;
+  --text-muted: #B0A498;
+
+  /* Rules & Borders — like printed column lines */
+  --rule: #D2C4B4;
+  --rule-light: #E4DCD0;
+  --rule-dark: #B0A498;
+
+  /* Footer */
+  --footer-bg: #2C2521;
+  --footer-text: #F8F4EE;
+  --dark-text-secondary: #B0A498;
+
+  /* Motion */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-out-quart);
+  --transition-smooth: 0.35s var(--ease-out-quart);
+  --transition-slow: 0.6s var(--ease-out-expo);
 }
 
 @theme inline {
+  /* Core palette */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-paper-aged: var(--paper-aged);
+  --color-paper-shadow: var(--paper-shadow);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-gold: var(--accent-gold);
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-muted: var(--text-muted);
+
+  /* Rules */
+  --color-rule: var(--rule);
+  --color-rule-light: var(--rule-light);
+  --color-rule-dark: var(--rule-dark);
+
+  /* Footer */
   --color-footer-bg: var(--footer-bg);
   --color-footer-text: var(--footer-text);
   --color-dark-text-secondary: var(--dark-text-secondary);
+
+  /* Fonts — Tailwind class mappings */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-merriweather: var(--font-merriweather);
-  --font-raleway: var(--font-raleway);
+  --font-lora: var(--font-lora);
   --font-playfair: var(--font-playfair);
+  --font-libre-franklin: var(--font-libre-franklin);
+
+  /* Backwards-compatible aliases so existing font-merriweather
+     and font-raleway Tailwind classes resolve to new fonts */
+  --font-merriweather: var(--font-lora);
+  --font-raleway: var(--font-libre-franklin);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* News Site Typography Theme */
+/* ============================================================
+   TYPOGRAPHY — Editorial, warm, readable
+   ============================================================ */
 @layer components {
   .font-headline {
-    font-family: var(--font-merriweather);
+    font-family: var(--font-playfair);
     font-size: 28px;
-    font-weight: 600;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
   }
 
   .font-subheading {
-    font-family: var(--font-raleway);
-    font-size: 16px;
+    font-family: var(--font-libre-franklin);
+    font-size: 15px;
     font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.01em;
   }
 
   .font-paragraph {
-    font-family: var(--font-merriweather);
+    font-family: var(--font-lora);
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--text-primary);
   }
 
   .font-accent {
     font-family: var(--font-playfair);
     font-size: 18px;
     font-weight: 400;
+    font-style: italic;
+    color: var(--text-secondary);
   }
 
   .font-tagline {
     font-family: var(--font-playfair);
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 600;
     font-style: italic;
+    color: var(--text-tertiary);
   }
 
   .font-date {
-    font-family: var(--font-raleway);
+    font-family: var(--font-libre-franklin);
     font-size: 12px;
     font-weight: 500;
-    color: #374151;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
   }
 
   .font-search {
-    font-family: var(--font-raleway);
+    font-family: var(--font-libre-franklin);
     font-size: 14px;
     font-weight: 400;
+    color: var(--text-primary);
   }
 
   .font-button {
-    font-family: var(--font-raleway);
+    font-family: var(--font-libre-franklin);
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .font-nav {
-    font-family: var(--font-raleway);
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
+    font-family: var(--font-libre-franklin);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .font-weather {
-    font-family: var(--font-raleway);
+    font-family: var(--font-libre-franklin);
     font-size: 12px;
     font-weight: 600;
-    color: #374151;
+    color: var(--text-tertiary);
   }
 
   .font-ad-label {
-    font-family: var(--font-raleway);
-    font-size: 12px;
+    font-family: var(--font-libre-franklin);
+    font-size: 11px;
     font-weight: 500;
-    color: #9ca3af;
+    color: var(--text-muted);
     text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* === Section label — e.g. "OPINION", "LOCAL NEWS" === */
+  .font-section-label {
+    font-family: var(--font-libre-franklin);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* === Byline — author attribution in small caps === */
+  .font-byline {
+    font-family: var(--font-libre-franklin);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-tertiary);
     letter-spacing: 0.08em;
+    font-variant: small-caps;
+    text-transform: lowercase;
   }
 }
 
+/* ============================================================
+   NEWSPAPER UTILITIES — Print-inspired details
+   ============================================================ */
+@layer components {
+  /* Vertical column rule (between sidebar and main content) */
+  .column-rule {
+    border-left: 1px solid var(--rule);
+    padding-left: 1.5rem;
+  }
+
+  /* Horizontal section divider — thin rule with optional label */
+  .section-rule {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .section-rule-thick {
+    border-top: 3px solid var(--text-primary);
+    padding-top: 1rem;
+    margin-top: 2rem;
+  }
+
+  .section-rule-double {
+    border-top: 3px double var(--rule-dark);
+    padding-top: 1rem;
+    margin-top: 2rem;
+  }
+
+  /* Drop cap — for article lead paragraphs */
+  .drop-cap::first-letter {
+    font-family: var(--font-playfair);
+    float: left;
+    font-size: 3.8em;
+    line-height: 0.8;
+    font-weight: 700;
+    margin-right: 0.08em;
+    margin-top: 0.05em;
+    color: var(--text-primary);
+  }
+
+  /* Accent underline — for links with editorial feel */
+  .accent-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--accent-gold);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+  }
+  .accent-link:hover {
+    color: var(--accent-hover);
+    text-decoration-color: var(--accent-hover);
+  }
+}
+
+/* ============================================================
+   TRANSITIONS & ANIMATION — Playful but tasteful
+   ============================================================ */
+@layer components {
+  /* Fade up on scroll — apply to cards, articles, sections */
+  .animate-fade-up {
+    animation: fadeUp var(--transition-slow) both;
+  }
+
+  /* Stagger children — apply to a parent container */
+  .stagger-children > * {
+    animation: fadeUp 0.5s var(--ease-out-expo) both;
+  }
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+  .stagger-children > *:nth-child(7) { animation-delay: 360ms; }
+  .stagger-children > *:nth-child(8) { animation-delay: 420ms; }
+
+  /* Hover lift — subtle paper-lifting-off-table effect */
+  .hover-lift {
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(44, 37, 33, 0.08);
+  }
+
+  /* Smooth image zoom on hover */
+  .hover-zoom {
+    overflow: hidden;
+  }
+  .hover-zoom img {
+    transition: transform 0.6s var(--ease-out-expo);
+  }
+  .hover-zoom:hover img {
+    transform: scale(1.04);
+  }
+
+  /* Link hover — warm underline grows in */
+  .link-grow-underline {
+    position: relative;
+    text-decoration: none;
+  }
+  .link-grow-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width var(--transition-smooth);
+  }
+  .link-grow-underline:hover::after {
+    width: 100%;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   GLOBAL STYLES
+   ============================================================ */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-merriweather), serif;
-  font-weight: 300;
+  font-family: var(--font-lora), Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  position: relative;
+}
+
+/* Paper grain texture — subtle newsprint feel */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+}
+
+/* Smooth transitions on all interactive elements */
+a {
+  transition: color var(--transition-fast);
+}
+
+/* Scrollbar — warm tones */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--paper-aged);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--rule-dark);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Selection highlight — warm gold */
+::selection {
+  background: rgba(184, 134, 11, 0.2);
+  color: var(--text-primary);
 }

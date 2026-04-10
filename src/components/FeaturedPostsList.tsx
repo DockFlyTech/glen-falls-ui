@@ -91,7 +91,7 @@ export function FeaturedPostsList({
                 >
                   <div className="flex items-center gap-1">
                     <UserIcon className="w-3 h-3" />
-                    <span>{getAuthorName(post)}</span>
+                    <span className="font-byline">{getAuthorName(post)}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <CalendarIcon className="w-3 h-3" />

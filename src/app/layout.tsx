@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import {
   Geist,
   Geist_Mono,
-  Merriweather,
-  Raleway,
+  Lora,
+  Libre_Franklin,
   Playfair_Display,
 } from "next/font/google";
 import "./globals.css";
@@ -21,16 +21,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const merriweather = Merriweather({
-  variable: "--font-merriweather",
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
-  weight: ["300", "400", "700", "900"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const raleway = Raleway({
-  variable: "--font-raleway",
+const libreFranklin = Libre_Franklin({
+  variable: "--font-libre-franklin",
   subsets: ["latin"],
-  weight: ["100", "400", "500", "700", "900"],
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const playfair = Playfair_Display({
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${merriweather.variable} ${raleway.variable} ${playfair.variable} antialiased min-h-screen flex flex-col`}
+        className={`${geistSans.variable} ${geistMono.variable} ${lora.variable} ${libreFranklin.variable} ${playfair.variable} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
         <div className="flex-grow">{children}</div>
