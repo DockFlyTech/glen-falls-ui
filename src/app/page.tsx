@@ -26,6 +26,14 @@ export default async function HomePage() {
         {/* Main Content Column */}
         <div className="lg:w-2/3 flex flex-col gap-12">
           <MainFeaturedArticle post={featuredPost} />
+
+          {/* Above the fold rule */}
+          <div className="flex items-center gap-4">
+            <div className="flex-1 h-px bg-rule" />
+            <div className="h-[3px] w-16 bg-accent-gold" />
+            <div className="flex-1 h-px bg-rule" />
+          </div>
+
           <BoldPostsList
             title="Trending Posts #1"
             posts={trendingPosts.length ? trendingPosts : posts}

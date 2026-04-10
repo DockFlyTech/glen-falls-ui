@@ -27,7 +27,7 @@ export function ContentNotFound({
         404: {title}
       </h1>
 
-      <div className="w-20 h-1.5 bg-black mx-auto mb-8"></div>
+      <div className="w-20 h-1.5 bg-accent-gold mx-auto mb-8"></div>
 
       <p className="text-lg text-gray-600 font-merriweather leading-relaxed mb-12 max-w-lg mx-auto">
         {message}
@@ -36,7 +36,7 @@ export function ContentNotFound({
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
         <Link
           href="/"
-          className="flex items-center gap-2 bg-black text-white px-8 py-4 font-black uppercase tracking-widest text-[13px] hover:bg-gray-800 transition-colors w-full sm:w-auto justify-center"
+          className="flex items-center gap-2 bg-accent text-white px-8 py-4 font-black uppercase tracking-widest text-[13px] hover:bg-accent-hover transition-colors w-full sm:w-auto justify-center"
         >
           <HomeIcon className="w-4 h-4" />
           Back to Home

@@ -32,13 +32,13 @@ export function SquareImagePostsList({
               </div>
             )}
             <article className="flex flex-col md:flex-row gap-6 pb-6 pt-4">
-            <div className="relative w-full md:w-[220px] aspect-square overflow-hidden bg-gray-100 shrink-0">
+            <div className="relative w-full md:w-[220px] aspect-square overflow-hidden bg-gray-100 shrink-0 hover-zoom">
               {featuredImage ? (
                 <Image
                   src={featuredImage}
                   alt={post.title.rendered}
                   fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
+                  className="object-cover"
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center italic text-gray-400 font-raleway">

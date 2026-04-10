@@ -11,7 +11,7 @@ export function ArticlePreview({ post }: { post: Post }) {
       {category && (
         <Link 
           href={`/category/${category.slug}`}
-          className="text-xs font-bold uppercase tracking-wide mb-2 block hover:text-gray-600 transition-colors text-black"
+          className="text-xs font-bold uppercase tracking-wide mb-2 block hover:text-accent-hover transition-colors text-accent"
         >
           {category.name}
         </Link>

@@ -13,10 +13,12 @@
   --paper-aged: #F0EAE0;
   --paper-shadow: #E4DCD0;
 
-  /* Warm Accent Palette */
-  --accent: #7B2D26;
-  --accent-hover: #611F1A;
-  --accent-gold: #B8860B;
+  /* Accent Palette — pulled from the print paper's masthead blue + gold callout bars */
+  --accent: #1B4F6E;
+  --accent-hover: #133A52;
+  --accent-gold: #C89B1E;
+  --accent-gold-hover: #A67F0F;
+  --accent-gold-light: rgba(200, 155, 30, 0.12);
 
   /* Text Hierarchy — warm grays, never cold */
   --text-primary: #2C2521;
@@ -51,6 +53,8 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-hover: var(--accent-gold-hover);
+  --color-accent-gold-light: var(--accent-gold-light);
 
   /* Text */
   --color-text-primary: var(--text-primary);
@@ -420,6 +424,17 @@ body::before {
   mix-blend-mode: multiply;
 }
 
+/* Warm image filter — photos feel like they belong on newsprint */
+article img,
+.newsprint-img {
+  filter: sepia(0.08) saturate(0.9) brightness(0.98);
+  transition: filter 0.4s var(--ease-out-quart);
+}
+article img:hover,
+.newsprint-img:hover {
+  filter: sepia(0) saturate(1) brightness(1);
+}
+
 /* Smooth transitions on all interactive elements */
 a {
   transition: color var(--transition-fast);
@@ -440,8 +455,8 @@ a {
   background: var(--text-tertiary);
 }
 
-/* Selection highlight — warm gold */
+/* Selection highlight — Chronicle gold */
 ::selection {
-  background: rgba(184, 134, 11, 0.2);
+  background: rgba(200, 155, 30, 0.25);
   color: var(--text-primary);
 }

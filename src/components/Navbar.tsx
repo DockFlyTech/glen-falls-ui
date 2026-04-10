@@ -35,7 +35,7 @@ export function Navbar() {
   return (
     <>
       {/* Masthead — scrolls away naturally */}
-      <div className="bg-white border-b border-rule">
+      <div className="bg-white">
         {/* Top decorative rule — thin/thick/thin */}
         <div className="max-w-[1400px] mx-auto px-4">
           <div className="flex flex-col items-stretch pt-2">
@@ -83,7 +83,7 @@ export function Navbar() {
             </div>
             <Link
               href="#"
-              className="font-button bg-gray-900 text-white px-4 py-1.5 rounded-md hover:bg-black transition-colors whitespace-nowrap"
+              className="font-button bg-accent text-white px-4 py-1.5 rounded-md hover:bg-accent-hover transition-colors whitespace-nowrap"
             >
               SUBSCRIBE
             </Link>
@@ -117,8 +117,8 @@ export function Navbar() {
         </div>
 
         {/* Bottom decorative rule — thick/thin */}
-        <div className="max-w-[1400px] mx-auto px-4">
-          <div className="flex flex-col items-stretch pb-0">
+        <div className="max-w-[1400px] mx-auto px-4 pb-0">
+          <div className="flex flex-col items-stretch">
             <div className="h-[2px] bg-foreground" />
             <div className="h-px bg-rule-dark mt-[2px]" />
           </div>

@@ -31,7 +31,7 @@ export function HomeNewsColumns({ posts }: { posts: Post[] }) {
           }`}
         >
           {activeTab === "latest" && (
-            <div className="absolute top-0 left-0 right-0 h-1 bg-black" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-accent-gold" />
           )}
           <ClockIcon className="w-5 h-5 mb-1" />
           <span className="text-[11px] font-bold uppercase tracking-wider font-raleway">
@@ -47,7 +47,7 @@ export function HomeNewsColumns({ posts }: { posts: Post[] }) {
           }`}
         >
           {activeTab === "trending" && (
-            <div className="absolute top-0 left-0 right-0 h-1 bg-black" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-accent-gold" />
           )}
           <FireIcon className="w-5 h-5 mb-1" />
           <span className="text-[11px] font-bold uppercase tracking-wider font-raleway">
@@ -80,7 +80,7 @@ function ArticlePreviewSmall({ post }: { post: Post }) {
   return (
     <article className="p-6">
       {category && (
-        <p className="text-[10px] font-black uppercase tracking-widest mb-2 text-black font-raleway">
+        <p className="text-[10px] font-black uppercase tracking-widest mb-2 text-accent font-raleway">
           {category.name}
         </p>
       )}

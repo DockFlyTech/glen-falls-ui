@@ -42,8 +42,8 @@ export function FrontPagePreview({
         />
 
         {pdfUrl && (
-          <div className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors flex items-center justify-center">
-            <div className="bg-black text-white px-4 py-2 text-xs font-bold uppercase tracking-widest opacity-0 hover:opacity-100 transition-opacity">
+          <div className="absolute inset-0 bg-accent/0 hover:bg-accent/5 transition-colors flex items-center justify-center">
+            <div className="bg-accent text-white px-4 py-2 text-xs font-bold uppercase tracking-widest opacity-0 hover:opacity-100 transition-opacity">
               Open Full PDF
             </div>
           </div>
@@ -56,7 +56,7 @@ export function FrontPagePreview({
             href={pdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-black text-white text-center py-3 text-[11px] font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors"
+            className="w-full bg-accent text-white text-center py-3 text-[11px] font-bold uppercase tracking-widest hover:bg-accent-hover transition-colors"
           >
             View Full Screen
           </a>

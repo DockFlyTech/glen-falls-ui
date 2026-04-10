@@ -16,21 +16,21 @@ export function BoldPostsList({
   viewAllLink = "#",
 }: BoldPostsListProps) {
   return (
-    <div className={`border-[3px] border-black p-1 ${className}`}>
-      <div className="border border-black p-6">
+    <div className={`border-[3px] border-accent p-1 ${className}`}>
+      <div className="border border-accent p-6">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-2xl font-merriweather font-black tracking-tight text-black">
+          <h3 className="text-2xl font-merriweather font-black tracking-tight">
             {title}
           </h3>
           <Link
             href={viewAllLink}
-            className="flex items-center gap-1 text-[13px] font-bold text-black hover:opacity-70 transition-opacity"
+            className="flex items-center gap-1 text-[13px] font-bold text-accent hover:text-accent-hover transition-colors"
           >
             View All <ChevronDoubleRightIcon className="w-4 h-4" />
           </Link>
         </div>
-        
-        <div className="w-16 h-1.5 bg-black mb-8"></div>
+
+        <div className="w-16 h-1.5 bg-accent-gold mb-8"></div>
 
         <div className="flex flex-col">
           {posts.slice(0, 5).map((post, index) => (
@@ -44,7 +44,7 @@ export function BoldPostsList({
                 href={`/article/${post.slug}`}
                 className="flex gap-6 py-4 group"
               >
-                <span className="text-4xl font-merriweather font-black text-black leading-none pt-1">
+                <span className="text-4xl font-merriweather font-black text-accent leading-none pt-1">
                   {index + 1}
                 </span>
                 <h4 className="text-[20px] font-merriweather font-black leading-tight text-black group-hover:text-gray-700 transition-colors">

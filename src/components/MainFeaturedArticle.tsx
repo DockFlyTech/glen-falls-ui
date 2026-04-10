@@ -14,7 +14,7 @@ export function MainFeaturedArticle({ post }: { post: Post }) {
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
       <div className="lg:col-span-4 flex flex-col justify-center">
         {category && (
-          <span className="inline-block bg-black text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest mb-4 w-fit">
+          <span className="inline-block bg-accent text-white text-[10px] font-bold px-2 py-1 uppercase tracking-widest mb-4 w-fit">
             {category.name}
           </span>
         )}
@@ -80,7 +80,7 @@ export function MainFeaturedArticle({ post }: { post: Post }) {
         />
       </div>
 
-      <div className="lg:col-span-8 relative min-h-[500px] overflow-hidden">
+      <div className="lg:col-span-8 relative min-h-[500px] hover-zoom">
         {featuredImage ? (
           <Image
             src={featuredImage}
