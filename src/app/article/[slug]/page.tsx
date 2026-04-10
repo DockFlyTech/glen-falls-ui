@@ -23,7 +23,7 @@ export default async function ArticlePage({
             <AdPlaceholder variant="in-article" label="In-article ad — top" />
           </div>
           <div
-            className="prose max-w-none"
+            className="prose max-w-none prose-justified"
             dangerouslySetInnerHTML={{ __html: post.content.rendered }}
           />
           <div className="my-6">
@@ -32,7 +32,7 @@ export default async function ArticlePage({
         </article>
 
         {/* Sidebar Ads */}
-        <aside className="lg:w-1/3 flex flex-col gap-10">
+        <aside className="lg:w-1/3 flex flex-col gap-10 lg:border-l lg:border-rule lg:pl-10">
           <AdPlaceholder variant="sidebar" label="Article sidebar ad — 300×250" />
           <AdPlaceholder variant="sidebar" label="Article sidebar ad — 300×250" />
         </aside>

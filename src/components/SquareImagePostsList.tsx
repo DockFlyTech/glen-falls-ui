@@ -20,15 +20,18 @@ export function SquareImagePostsList({
   className = "",
 }: SquareImagePostsListProps) {
   return (
-    <div className={`flex flex-col gap-6 ${className}`}>
-      {posts.map(post => {
+    <div className={`flex flex-col ${className}`}>
+      {posts.map((post, index) => {
         const featuredImage = getFeaturedImageUrl(post);
 
         return (
-          <article
-            key={post.id}
-            className="flex flex-col md:flex-row gap-6 pb-6 border-b border-gray-100 last:border-0"
-          >
+          <div key={post.id}>
+            {index > 0 && (
+              <div className="ornament-divider my-2">
+                <span className="text-rule-dark text-xs select-none">&#9670;</span>
+              </div>
+            )}
+            <article className="flex flex-col md:flex-row gap-6 pb-6 pt-4">
             <div className="relative w-full md:w-[220px] aspect-square overflow-hidden bg-gray-100 shrink-0">
               {featuredImage ? (
                 <Image
@@ -75,6 +78,7 @@ export function SquareImagePostsList({
               />
             </div>
           </article>
+          </div>
         );
       })}
     </div>

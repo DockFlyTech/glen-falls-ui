@@ -33,7 +33,7 @@ export default async function HomePage() {
           <SquareImagePostsList posts={squareListPosts} />
         </div>
         {/* Sidebar Column */}
-        <div className="lg:w-1/3 flex flex-col gap-10">
+        <div className="lg:w-1/3 flex flex-col gap-10 lg:border-l lg:border-rule lg:pl-10">
           <FrontPagePreview
             image={frontPageMedia.image}
             pdf={frontPageMedia.pdf}

@@ -7,7 +7,7 @@ export function ArticlePreview({ post }: { post: Post }) {
   const category = getPrimaryCategory(post);
 
   return (
-    <article className="border-b border-gray-200 py-6">
+    <article className="py-6 article-ornament-separator">
       {category && (
         <Link 
           href={`/category/${category.slug}`}

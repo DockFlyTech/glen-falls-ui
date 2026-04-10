@@ -4,23 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { ChevronDownIcon } from "@heroicons/react/16/solid";
-import { useState, useEffect } from "react";
 import { socialMediaIcons } from "@/components/icons/social-media-icons";
 import { Weather } from "@/components/Weather";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 150);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
     year: "numeric",
@@ -46,13 +33,9 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="border-b border-rule bg-white sticky top-0 z-50">
-      {/* Masthead section — visible at top, collapses on scroll */}
-      <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          scrolled ? "max-h-0 opacity-0" : "max-h-60 opacity-100"
-        }`}
-      >
+    <>
+      {/* Masthead — scrolls away naturally */}
+      <div className="bg-white border-b border-rule">
         {/* Top decorative rule — thin/thick/thin */}
         <div className="max-w-[1400px] mx-auto px-4">
           <div className="flex flex-col items-stretch pt-2">
@@ -74,13 +57,16 @@ export function Navbar() {
             />
           </Link>
 
-          {/* Left side — tagline, date, weather */}
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 flex flex-col gap-1">
-            <p className="font-tagline text-gray-900 whitespace-nowrap">
+          {/* Left side — tagline, dateline, weather */}
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 flex flex-col gap-1.5">
+            <p className="font-tagline text-text-primary whitespace-nowrap">
               Northern New York&apos;s Leading Newspaper
             </p>
-            <div className="flex items-center gap-3">
-              <p className="font-date">{today}</p>
+            <div className="flex items-center gap-2">
+              <p className="font-date text-text-secondary" style={{ fontVariant: "all-small-caps", letterSpacing: "0.08em" }}>
+                {today} &bull; Glens Falls, New York
+              </p>
+              <span className="text-rule-dark text-[8px] select-none">&#9670;</span>
               <Weather />
             </div>
           </div>
@@ -139,29 +125,31 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Nav links — always visible */}
-      <div className="max-w-[1400px] mx-auto px-4 h-12 flex items-center justify-between">
-        <div className="flex items-center gap-6 h-full font-nav">
-          {navItems.map((item) => (
-            <div
-              key={item.name}
-              className="flex items-center h-full group relative"
-            >
-              <Link
-                href={item.href}
-                target={item.isExternal ? "_blank" : undefined}
-                rel={item.isExternal ? "noopener noreferrer" : undefined}
-                className="hover:text-gray-600 flex items-center gap-1"
+      {/* Nav bar — sticks to top on scroll */}
+      <nav className="bg-white border-b border-rule sticky top-0 z-50">
+        <div className="max-w-[1400px] mx-auto px-4 h-12 flex items-center justify-between">
+          <div className="flex items-center gap-6 h-full font-nav">
+            {navItems.map((item) => (
+              <div
+                key={item.name}
+                className="flex items-center h-full group relative"
               >
-                {item.name}
-                {item.hasDropdown && (
-                  <ChevronDownIcon className="w-3.5 h-3.5" />
-                )}
-              </Link>
-            </div>
-          ))}
+                <Link
+                  href={item.href}
+                  target={item.isExternal ? "_blank" : undefined}
+                  rel={item.isExternal ? "noopener noreferrer" : undefined}
+                  className="hover:text-gray-600 flex items-center gap-1"
+                >
+                  {item.name}
+                  {item.hasDropdown && (
+                    <ChevronDownIcon className="w-3.5 h-3.5" />
+                  )}
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }

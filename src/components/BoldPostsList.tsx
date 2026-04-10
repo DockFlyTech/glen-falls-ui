@@ -34,18 +34,24 @@ export function BoldPostsList({
 
         <div className="flex flex-col">
           {posts.slice(0, 5).map((post, index) => (
-            <Link 
-              key={post.id} 
-              href={`/article/${post.slug}`}
-              className="flex gap-6 py-6 border-b border-gray-200 last:border-0 group"
-            >
-              <span className="text-4xl font-merriweather font-black text-black leading-none pt-1">
-                {index + 1}
-              </span>
-              <h4 className="text-[20px] font-merriweather font-black leading-tight text-black group-hover:text-gray-700 transition-colors">
-                {post.title.rendered}
-              </h4>
-            </Link>
+            <div key={post.id}>
+              {index > 0 && (
+                <div className="ornament-divider">
+                  <span className="text-rule-dark text-xs select-none">&#9670;</span>
+                </div>
+              )}
+              <Link
+                href={`/article/${post.slug}`}
+                className="flex gap-6 py-4 group"
+              >
+                <span className="text-4xl font-merriweather font-black text-black leading-none pt-1">
+                  {index + 1}
+                </span>
+                <h4 className="text-[20px] font-merriweather font-black leading-tight text-black group-hover:text-gray-700 transition-colors">
+                  {post.title.rendered}
+                </h4>
+              </Link>
+            </div>
           ))}
         </div>
       </div>
