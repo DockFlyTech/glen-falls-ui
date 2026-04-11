@@ -20,14 +20,14 @@ export function HomeNewsColumns({ posts }: { posts: Post[] }) {
   const displayPosts = activeTab === "latest" ? latest : trending;
 
   return (
-    <div className="border border-gray-200">
-      <div className="flex border-b border-gray-200">
+    <div className="border border-rule">
+      <div className="flex border-b border-rule">
         <button
           onClick={() => setActiveTab("latest")}
           className={`flex-1 py-4 flex flex-col items-center justify-center transition-colors relative ${
             activeTab === "latest"
               ? "text-black"
-              : "text-gray-400 hover:text-gray-600"
+              : "text-text-muted hover:text-text-secondary"
           }`}
         >
           {activeTab === "latest" && (
@@ -43,7 +43,7 @@ export function HomeNewsColumns({ posts }: { posts: Post[] }) {
           className={`flex-1 py-4 flex flex-col items-center justify-center transition-colors relative ${
             activeTab === "trending"
               ? "text-black"
-              : "text-gray-400 hover:text-gray-600"
+              : "text-text-muted hover:text-text-secondary"
           }`}
         >
           {activeTab === "trending" && (
@@ -62,7 +62,7 @@ export function HomeNewsColumns({ posts }: { posts: Post[] }) {
             key={post.id}
             className={
               index !== displayPosts.slice(0, 5).length - 1
-                ? "border-b border-gray-100"
+                ? "border-b border-rule-light"
                 : ""
             }
           >
@@ -85,13 +85,13 @@ function ArticlePreviewSmall({ post }: { post: Post }) {
         </p>
       )}
 
-      <h3 className="text-[16px] font-merriweather font-bold leading-[1.3] mb-2">
-        <a href={`/article/${post.slug}`} className="hover:text-gray-700">
+      <h3 className="text-[16px] font-lora font-bold leading-[1.3] mb-2">
+        <a href={`/article/${post.slug}`} className="hover:text-accent">
           {post.title.rendered}
         </a>
       </h3>
 
-      <div className="text-[11px] text-gray-500 flex flex-wrap gap-x-4 gap-y-1 font-medium font-raleway">
+      <div className="text-[11px] text-text-tertiary flex flex-wrap gap-x-4 gap-y-1 font-medium font-libre-franklin">
         <div className="flex items-center gap-1">
           <svg
             className="w-3.5 h-3.5"

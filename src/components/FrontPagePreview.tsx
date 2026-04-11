@@ -13,12 +13,12 @@ export function FrontPagePreview({
   const pdfUrl = pdf?.source_url;
 
   return (
-    <div className="bg-white border border-gray-200 p-4 shadow-sm flex flex-col items-center">
+    <div className="bg-white border border-rule p-4 shadow-sm flex flex-col items-center">
       <div className="text-center mb-4">
         <h2 className="text-xl font-merriweather font-black uppercase tracking-tight">
           Today’s Paper
         </h2>
-        <p className="text-[10px] font-raleway font-bold text-gray-500 uppercase tracking-widest mt-1">
+        <p className="text-[10px] font-libre-franklin font-bold text-text-tertiary uppercase tracking-widest mt-1">
           {new Date(image.date).toLocaleDateString("en-US", {
             weekday: "long",
             month: "long",
@@ -32,7 +32,7 @@ export function FrontPagePreview({
         href={pdfUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="relative w-full aspect-[1/1.4] block overflow-hidden border border-gray-300 shadow-md hover:shadow-xl transition-shadow"
+        className="relative w-full aspect-[1/1.4] block overflow-hidden border border-rule shadow-md hover:shadow-xl transition-shadow"
       >
         <Image
           src={image.source_url}

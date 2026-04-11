@@ -32,7 +32,7 @@ export function SquareImagePostsList({
               </div>
             )}
             <article className="flex flex-col md:flex-row gap-6 pb-6 pt-4">
-            <div className="relative w-full md:w-[220px] aspect-square overflow-hidden bg-gray-100 shrink-0 hover-zoom">
+            <div className="relative w-full md:w-[220px] aspect-square overflow-hidden bg-paper-aged shrink-0 hover-zoom">
               {featuredImage ? (
                 <Image
                   src={featuredImage}
@@ -41,7 +41,7 @@ export function SquareImagePostsList({
                   className="object-cover"
                 />
               ) : (
-                <div className="w-full h-full flex items-center justify-center italic text-gray-400 font-raleway">
+                <div className="w-full h-full flex items-center justify-center italic text-text-muted font-libre-franklin">
                   <PhotoIcon className="w-10 h-10" />
                 </div>
               )}
@@ -51,13 +51,13 @@ export function SquareImagePostsList({
               <h3 className="text-2xl font-merriweather font-black leading-tight mb-3">
                 <Link
                   href={`/article/${post.slug}`}
-                  className="hover:text-gray-800 transition-colors"
+                  className="hover:text-accent transition-colors"
                 >
                   {post.title.rendered}
                 </Link>
               </h3>
 
-              <div className="flex items-center gap-4 text-xs text-gray-500 mb-4 font-medium font-raleway uppercase tracking-wider">
+              <div className="flex items-center gap-4 text-xs text-text-tertiary mb-4 font-medium font-libre-franklin uppercase tracking-wider">
                 <div className="flex items-center gap-1">
                   <UserIcon className="w-3.5 h-3.5" />
                   <span className="font-byline">{getAuthorName(post)}</span>
@@ -73,7 +73,7 @@ export function SquareImagePostsList({
               </div>
 
               <div
-                className="text-gray-600 font-merriweather text-[15px] leading-relaxed line-clamp-3"
+                className="text-text-secondary font-lora text-[15px] leading-relaxed line-clamp-3"
                 dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
               />
             </div>

@@ -13,33 +13,40 @@ export async function Footer() {
 
   return (
     <footer className="bg-footer-bg text-footer-text pt-16 mt-16">
+      {/* Gold accent bar at top of footer */}
       <div className="max-w-[1400px] mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
+        <div className="h-[3px] bg-accent-gold mb-12" />
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 mb-16">
           {/* Column 1: About */}
-          <div className="lg:col-span-4">
-            <h2 className="text-3xl font-merriweather font-black mb-4 tracking-tight">
+          <div className="lg:col-span-4 lg:pr-10">
+            <h2 className="text-2xl font-playfair font-bold mb-2 tracking-tight">
               Glens Falls Chronicle
             </h2>
-            <p className="text-dark-text-secondary font-raleway font-bold text-[15px] leading-relaxed mb-8 max-w-sm">
+            <p className="font-playfair italic text-sm text-white/50 mb-6">
+              Northern New York&apos;s Leading Newspaper
+            </p>
+            <p className="text-white/60 font-libre-franklin text-[14px] leading-relaxed mb-8 max-w-sm">
               Locally owned and locally committed. Bringing you the latest news,
               events, and stories from the Glens Falls region and beyond.
             </p>
 
             <div className="flex flex-col gap-4">
-              <div className="border-b border-white/20 pb-2 mb-2">
-                <h4 className="text-sm font-bold uppercase tracking-widest">
-                  Follow Us On:
-                </h4>
-              </div>
+              <h4 className="text-[11px] font-bold uppercase tracking-[0.15em] text-accent-gold font-libre-franklin">
+                Follow Us
+              </h4>
               <div className="flex gap-3">
                 {socialMediaIcons.map(social => (
                   <Link
                     key={social.name}
                     href={social.href}
-                    className="w-10 h-10 border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors bg-white/5"
+                    aria-label={social.name}
+                    className="w-9 h-9 border border-white/15 flex items-center justify-center hover:bg-accent-gold hover:border-accent-gold transition-colors"
                   >
                     <svg
-                      className="w-5 h-5 fill-none stroke-current"
+                      className="w-4 h-4 fill-none stroke-current"
                       viewBox="0 0 24 24"
                       strokeWidth="2"
                       strokeLinecap="round"
@@ -54,7 +61,7 @@ export async function Footer() {
           </div>
 
           {/* Column 2: Latest News */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 lg:border-l lg:border-white/10 lg:px-10 mt-10 lg:mt-0">
             <FeaturedPostsList
               title="Latest News"
               posts={latest.length ? latest : posts.slice(0, 3)}
@@ -63,7 +70,7 @@ export async function Footer() {
           </div>
 
           {/* Column 3: Trending News */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 lg:border-l lg:border-white/10 lg:pl-10 mt-10 lg:mt-0">
             <FeaturedPostsList
               title="Trending News"
               posts={trending.length ? trending : posts.slice(3, 6)}
@@ -73,15 +80,13 @@ export async function Footer() {
         </div>
       </div>
 
-      {/* Copyright Bar */}
-      <div className="bg-black py-4">
-        <div className="max-w-[1400px] mx-auto px-4 flex justify-center items-center relative">
-          <p className="text-[12px] font-raleway font-bold text-dark-text-secondary uppercase tracking-widest text-center">
-            Copyright © 2026 Glen Falls Chronicle
+      {/* Bottom bar */}
+      <div className="border-t border-white/10 py-5">
+        <div className="max-w-[1400px] mx-auto px-4 flex justify-between items-center">
+          <p className="text-[11px] font-libre-franklin font-medium text-white/40 uppercase tracking-[0.12em]">
+            &copy; {new Date().getFullYear()} Glens Falls Chronicle &bull; 15 Ridge Street, Glens Falls, NY 12801
           </p>
-          <div className="absolute right-4 top-1/2 -translate-y-1/2">
-            <ScrollToTop />
-          </div>
+          <ScrollToTop />
         </div>
       </div>
     </footer>

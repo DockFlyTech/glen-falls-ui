@@ -33,9 +33,9 @@ export function AdPlaceholder({
 
   return (
     <div
-      className={`${styles.container} border-2 border-dashed border-gray-300 rounded-md flex flex-col items-center justify-center gap-2 bg-gray-50`}
+      className={`${styles.container} border-2 border-dashed border-rule rounded-md flex flex-col items-center justify-center gap-2 bg-paper-aged/50`}
     >
-      <ImageIcon size={styles.iconSize} className="text-gray-300" />
+      <ImageIcon size={styles.iconSize} className="text-rule" />
       <span className="font-ad-label">{label}</span>
     </div>
   );

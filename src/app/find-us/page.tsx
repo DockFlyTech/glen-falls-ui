@@ -8,11 +8,12 @@ export default function FindUsPage() {
       <div className="flex flex-col lg:flex-row gap-16">
         {/* Main Content */}
         <div className="lg:w-2/3">
-          <h1 className="text-5xl font-merriweather font-black mb-8 tracking-tight text-black">
+          <h1 className="text-5xl font-playfair font-bold mb-4 tracking-tight">
             Find The Chronicle
           </h1>
+          <div className="w-20 h-[3px] bg-accent-gold mb-10" />
 
-          <div className="font-merriweather text-lg leading-[1.8] text-gray-800 space-y-6">
+          <div className="font-lora text-lg leading-[1.8] text-text-secondary space-y-6">
             <p>
               Pick up your free print copy of The Chronicle at hundreds of
               locations in the Greater Glens Falls/Lake George region —
@@ -23,7 +24,7 @@ export default function FindUsPage() {
             </p>
 
             <div>
-              <h2 className="text-2xl font-merriweather font-bold mb-4 text-black">
+              <h2 className="text-2xl font-playfair font-bold mb-4 text-text-primary">
                 Here are a few places to pick up this week&apos;s issue:
               </h2>
               <ul className="list-disc list-inside space-y-2 ml-4">
@@ -37,14 +38,14 @@ export default function FindUsPage() {
                 <li>Glens Falls Family YMCA</li>
                 <li>Glens Falls Hospital</li>
               </ul>
-              <p className="mt-4 italic">
+              <p className="mt-4 italic text-text-tertiary">
                 …Along with numerous other libraries, retail establishments,
                 restaurants, banks, offices and schools.
               </p>
             </div>
 
-            <div className="mt-10 pt-8 border-t border-gray-200">
-              <h2 className="text-2xl font-merriweather font-bold mb-4 text-black">
+            <div className="mt-10 pt-8 border-t border-rule">
+              <h2 className="text-2xl font-playfair font-bold mb-4 text-text-primary">
                 Digital Chronicle
               </h2>
               <p>
@@ -52,7 +53,7 @@ export default function FindUsPage() {
                 home page of{" "}
                 <Link
                   href="/"
-                  className="text-blue-700 hover:text-blue-900 underline"
+                  className="text-accent hover:text-accent-hover underline underline-offset-2 decoration-accent-gold"
                 >
                   glensfallschronicle.com
                 </Link>
@@ -64,11 +65,8 @@ export default function FindUsPage() {
         </div>
 
         {/* Sidebar */}
-        <div className="lg:w-1/3 flex flex-col gap-10">
-          {/* Subscribe Box */}
+        <div className="lg:w-1/3 flex flex-col gap-10 lg:border-l lg:border-rule lg:pl-10">
           <SubscribeBox />
-
-          {/* Social Links */}
           <FollowUsBox />
         </div>
       </div>

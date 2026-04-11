@@ -228,8 +228,8 @@
     margin-top: 2rem;
   }
 
-  /* Drop cap — for article lead paragraphs */
-  .drop-cap::first-letter {
+  /* Drop cap — targets first <p> inside the container */
+  .drop-cap > p:first-of-type::first-letter {
     font-family: var(--font-playfair);
     float: left;
     font-size: 3.8em;
@@ -307,6 +307,15 @@
     hyphens: auto;
     -webkit-hyphens: auto;
     hyphenate-limit-chars: 6 3 3;
+  }
+
+  /* Normalize WordPress line breaks — collapse <br> between sentences
+     into normal text flow instead of hard line breaks */
+  .prose-justified br {
+    display: none;
+  }
+  .prose-justified p {
+    white-space: normal;
   }
 
   /* Accent underline — for links with editorial feel */

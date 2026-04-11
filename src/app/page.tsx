@@ -24,7 +24,7 @@ export default async function HomePage() {
     <main className="max-w-[1400px] mx-auto px-4 py-8">
       <div className="flex flex-col lg:flex-row gap-10">
         {/* Main Content Column */}
-        <div className="lg:w-2/3 flex flex-col gap-12">
+        <div className="lg:w-2/3 flex flex-col gap-12 stagger-children">
           <MainFeaturedArticle post={featuredPost} />
 
           {/* Above the fold rule */}
@@ -35,13 +35,13 @@ export default async function HomePage() {
           </div>
 
           <BoldPostsList
-            title="Trending Posts #1"
+            title="Trending Posts"
             posts={trendingPosts.length ? trendingPosts : posts}
           />
           <SquareImagePostsList posts={squareListPosts} />
         </div>
         {/* Sidebar Column */}
-        <div className="lg:w-1/3 flex flex-col gap-10 lg:border-l lg:border-rule lg:pl-10">
+        <div className="lg:w-1/3 flex flex-col gap-10 lg:border-l lg:border-rule lg:pl-10 stagger-children">
           <FrontPagePreview
             image={frontPageMedia.image}
             pdf={frontPageMedia.pdf}

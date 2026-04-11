@@ -9,10 +9,11 @@ interface PostListLayoutProps {
 export function PostListLayout({ title, posts }: PostListLayoutProps) {
   return (
     <main className="max-w-[1400px] mx-auto px-4 py-12">
-      <header className="mb-12 border-b-4 border-black pb-4">
-        <h1 className="text-5xl font-merriweather font-black uppercase tracking-tight text-black">
+      <header className="mb-12 pb-4">
+        <h1 className="text-5xl font-playfair font-bold tracking-tight mb-4">
           {title}
         </h1>
+        <div className="h-[3px] bg-accent-gold w-24" />
       </header>
 
       <div className="flex flex-col">
@@ -21,7 +22,7 @@ export function PostListLayout({ title, posts }: PostListLayoutProps) {
             <ArticlePreview key={post.id} post={post} />
           ))
         ) : (
-          <p className="text-gray-500 font-merriweather italic py-12 text-center">
+          <p className="text-text-tertiary font-lora italic py-12 text-center">
             No articles found in this section.
           </p>
         )}

@@ -18,18 +18,18 @@ export function ContentNotFound({
   return (
     <div className="max-w-2xl mx-auto px-4 py-20 text-center">
       <div className="mb-8 flex justify-center">
-        <div className="w-24 h-24 bg-gray-50 rounded-full flex items-center justify-center border border-gray-100">
-          <MagnifyingGlassIcon className="w-12 h-12 text-gray-300" />
+        <div className="w-24 h-24 bg-paper-aged rounded-full flex items-center justify-center border border-rule-light">
+          <MagnifyingGlassIcon className="w-12 h-12 text-rule" />
         </div>
       </div>
 
-      <h1 className="text-4xl md:text-5xl font-merriweather font-black mb-6 tracking-tight text-gray-900 uppercase">
+      <h1 className="text-4xl md:text-5xl font-playfair font-bold mb-6 tracking-tight uppercase">
         404: {title}
       </h1>
 
       <div className="w-20 h-1.5 bg-accent-gold mx-auto mb-8"></div>
 
-      <p className="text-lg text-gray-600 font-merriweather leading-relaxed mb-12 max-w-lg mx-auto">
+      <p className="text-lg text-text-secondary font-lora leading-relaxed mb-12 max-w-lg mx-auto">
         {message}
       </p>
 

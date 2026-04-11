@@ -21,12 +21,12 @@ export function MainFeaturedArticle({ post }: { post: Post }) {
         <h1 className="text-4xl font-merriweather font-black leading-[1.1] mb-4 tracking-tight">
           <Link
             href={`/article/${post.slug}`}
-            className="hover:text-gray-800 transition-colors"
+            className="hover:text-accent transition-colors"
           >
             {post.title.rendered}
           </Link>
         </h1>
-        <div className="flex items-center gap-4 text-xs text-gray-500 mb-6 font-medium font-raleway">
+        <div className="flex items-center gap-4 text-xs text-text-tertiary mb-6 font-medium font-libre-franklin">
           <div className="flex items-center gap-1">
             <svg
               className="w-4 h-4"
@@ -75,7 +75,7 @@ export function MainFeaturedArticle({ post }: { post: Post }) {
           </div>
         </div>
         <div
-          className="text-[15px] text-gray-700 leading-relaxed font-merriweather columns-1 md:columns-2 gap-6 first-letter:text-6xl first-letter:font-black first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none"
+          className="text-[15px] text-text-secondary leading-relaxed font-lora columns-1 md:columns-2 gap-6 first-letter:text-6xl first-letter:font-black first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none first-letter:font-playfair"
           dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
         />
       </div>
@@ -90,7 +90,7 @@ export function MainFeaturedArticle({ post }: { post: Post }) {
             priority
           />
         ) : (
-          <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400 italic">
+          <div className="w-full h-full bg-paper-aged flex items-center justify-center text-text-muted italic">
             No featured image
           </div>
         )}

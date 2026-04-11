@@ -7,6 +7,14 @@ import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { socialMediaIcons } from "@/components/icons/social-media-icons";
 import { Weather } from "@/components/Weather";
 
+const categoryLinks = [
+  { name: "Front Page", href: "/category/front-page" },
+  { name: "Business", href: "/category/business" },
+  { name: "Recreation", href: "/category/recreation" },
+  { name: "Technology", href: "/category/technology" },
+  { name: "Music", href: "/category/music" },
+];
+
 export function Navbar() {
   const today = new Date().toLocaleDateString("en-US", {
     weekday: "long",
@@ -17,16 +25,13 @@ export function Navbar() {
 
   const navItems = [
     { name: "HOME", href: "/" },
-    { name: "ARTICLES", href: "#", hasDropdown: true },
+    { name: "ARTICLES", href: "/category/front-page", hasDropdown: true },
     {
       name: "OBITUARIES",
       href: "https://www.legacy.com/us/obituaries/glensfallschronicle/browse",
       isExternal: true,
     },
-    {
-      name: "ABOUT",
-      href: "/about",
-    },
+    { name: "ABOUT", href: "/about" },
     { name: "ADVERTISE WITH US", href: "#" },
     { name: "CONTACT", href: "/contact" },
     { name: "FIND THE CHRONICLE", href: "/find-us" },
@@ -74,11 +79,11 @@ export function Navbar() {
           {/* Right side — search, subscribe, social icons */}
           <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-4">
             <div className="relative">
-              <MagnifyingGlassIcon className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <MagnifyingGlassIcon className="absolute left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
               <input
                 type="text"
                 placeholder="Search..."
-                className="font-search pl-8 pr-3 py-1.5 border border-gray-300 rounded-md w-40 focus:outline-none focus:border-gray-500 transition-colors"
+                className="font-search pl-8 pr-3 py-1.5 border border-rule rounded-md w-40 focus:outline-none focus:border-text-tertiary transition-colors bg-white"
               />
             </div>
             <Link
@@ -87,7 +92,7 @@ export function Navbar() {
             >
               SUBSCRIBE
             </Link>
-            <div className="flex items-center gap-3 ml-1 pl-4 border-l border-gray-300">
+            <div className="flex items-center gap-3 ml-1 pl-4 border-l border-rule">
               {socialMediaIcons.map((item) => (
                 <a
                   key={item.name}
@@ -95,7 +100,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={item.name}
-                  className="text-gray-900 hover:text-black transition-colors"
+                  className="text-text-primary hover:text-accent transition-colors"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -138,13 +143,32 @@ export function Navbar() {
                   href={item.href}
                   target={item.isExternal ? "_blank" : undefined}
                   rel={item.isExternal ? "noopener noreferrer" : undefined}
-                  className="hover:text-gray-600 flex items-center gap-1"
+                  className="hover:text-accent flex items-center gap-1"
                 >
                   {item.name}
                   {item.hasDropdown && (
                     <ChevronDownIcon className="w-3.5 h-3.5" />
                   )}
                 </Link>
+
+                {/* Dropdown for Articles */}
+                {item.hasDropdown && (
+                  <div className="absolute top-full left-0 pt-0 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-200">
+                    <div className="bg-white border border-rule shadow-lg min-w-[200px]">
+                      {/* Gold accent bar at top */}
+                      <div className="h-[2px] bg-accent-gold" />
+                      {categoryLinks.map((cat) => (
+                        <Link
+                          key={cat.href}
+                          href={cat.href}
+                          className="block px-5 py-3 text-[12px] font-libre-franklin font-semibold tracking-wide text-text-primary hover:bg-accent-gold-light hover:text-accent transition-colors border-b border-rule-light last:border-0"
+                        >
+                          {cat.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
