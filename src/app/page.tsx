@@ -22,6 +22,14 @@ export default async function HomePage() {
 
   return (
     <main className="max-w-[1400px] mx-auto px-4 py-8">
+      {/* Mobile: Front page preview at the very top */}
+      <div className="lg:hidden mb-8">
+        <FrontPagePreview
+          image={frontPageMedia.image}
+          pdf={frontPageMedia.pdf}
+        />
+      </div>
+
       <div className="flex flex-col lg:flex-row gap-10">
         {/* Main Content Column */}
         <div className="lg:w-2/3 flex flex-col gap-12 stagger-children">
@@ -40,15 +48,22 @@ export default async function HomePage() {
           />
           <SquareImagePostsList posts={squareListPosts} />
         </div>
-        {/* Sidebar Column */}
+        {/* Sidebar Column — desktop only for ads, front page preview */}
         <div className="lg:w-1/3 flex flex-col gap-10 lg:border-l lg:border-rule lg:pl-10 stagger-children">
-          <FrontPagePreview
-            image={frontPageMedia.image}
-            pdf={frontPageMedia.pdf}
-          />
-          <AdPlaceholder variant="sidebar" label="Sidebar ad — 300×250 medium rectangle" />
+          {/* Front page preview — desktop only (shown above on mobile) */}
+          <div className="hidden lg:block">
+            <FrontPagePreview
+              image={frontPageMedia.image}
+              pdf={frontPageMedia.pdf}
+            />
+          </div>
+          <div className="hidden lg:block">
+            <AdPlaceholder variant="sidebar" label="Sidebar ad — 300×250 medium rectangle" />
+          </div>
           <HomeNewsColumns posts={posts} />
-          <AdPlaceholder variant="sidebar" label="Sidebar ad — 300×250 medium rectangle" />
+          <div className="hidden lg:block">
+            <AdPlaceholder variant="sidebar" label="Sidebar ad — 300×250 medium rectangle" />
+          </div>
         </div>
       </div>
     </main>

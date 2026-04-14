@@ -56,7 +56,7 @@ export default function RootLayout({
       >
         <Navbar />
         <div className="flex-grow">{children}</div>
-        <div className="max-w-[1400px] mx-auto w-full px-4 py-3">
+        <div className="hidden lg:block max-w-[1400px] mx-auto w-full px-4 py-3">
           <AdPlaceholder variant="banner" label="Footer ad — 728×90 leaderboard" />
         </div>
         <Footer />

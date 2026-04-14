@@ -419,6 +419,7 @@ body {
   font-family: var(--font-lora), Georgia, "Times New Roman", serif;
   font-weight: 400;
   position: relative;
+  overflow-x: hidden;
 }
 
 /* Paper grain texture — subtle newsprint feel */

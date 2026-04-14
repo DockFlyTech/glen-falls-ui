@@ -91,8 +91,8 @@ export default async function ArticlePage({
           </div>
         </article>
 
-        {/* Sidebar */}
-        <aside className="lg:w-1/3 flex flex-col gap-10 lg:border-l lg:border-rule lg:pl-10">
+        {/* Sidebar — desktop only */}
+        <aside className="hidden lg:flex lg:w-1/3 flex-col gap-10 lg:border-l lg:border-rule lg:pl-10">
           <AdPlaceholder variant="sidebar" label="Article sidebar ad — 300×250" />
           <AdPlaceholder variant="sidebar" label="Article sidebar ad — 300×250" />
         </aside>
